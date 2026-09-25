@@ -9,4 +9,17 @@ class RegisterSerializer(serializers.Serializer):
     password=serializers.CharField()
 
 
+class ExpensesSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=Expenses
+        fields='__all__'
+        read_only_fields=['owner']
+
+
+class SummerySerializer(serializers.Serializer):
+    category=serializers.CharField()
+    amount_sum=serializers.IntegerField()
+
+
+
 

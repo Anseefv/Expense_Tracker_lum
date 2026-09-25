@@ -27,3 +27,17 @@ class Expenses(models.Model):
     amount=models.FloatField()
     created_at=models.DateTimeField(auto_now_add=True)
     owner=models.ForeignKey(User,on_delete=models.CASCADE)
+
+
+
+
+
+
+class employee(models.Model):
+    name=models.CharField(max_length=30)
+    dept=models.CharField(max_length=40)
+    location=models.CharField(max_length=20)
+    salary=models.PositiveIntegerField()
+
+    def __str__(self):
+        return self.name
