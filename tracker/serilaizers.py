@@ -10,10 +10,14 @@ class RegisterSerializer(serializers.Serializer):
 
 
 class ExpensesSerializer(serializers.ModelSerializer):
+    # owner=serializers.StringRelatedField(read_only=True)
+    owner=serializers.SerializerMethodField()
     class Meta:
         model=Expenses
         fields='__all__'
         read_only_fields=['owner']
+    def get_owner(self,obj):
+        return obj.owner.username
 
 
 class SummerySerializer(serializers.Serializer):
